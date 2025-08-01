@@ -3,14 +3,7 @@ import sys
 import socket
 
 def garywelcome1(version = str, delay = float):
-    txt = (f'''
-*****************************************************************************
-***************************** Finding Gary  {version} *****************************
-********************************* by  Fauzi *********************************
-*****************************************************************************
-
-Press any key to continue...
-''')
+    txt = f'''{' Finding Gary {version} ':^77}'''
     for char in txt:
         sys.stdout.write(char)
         sys.stdout.flush()

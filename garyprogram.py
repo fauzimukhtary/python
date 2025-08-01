@@ -2,15 +2,13 @@ import random
 import msvcrt
 import time
 import main
-import zeelibrary
+import zeelibrary as zee
 from zeelibrary import slprt
 
 
 def start():
 
-    zeelibrary.garywelcome1(1.7, 0.005)
-    msvcrt.getch() 
-    slprt(zeelibrary.garywelcome2, 0.005)
+    zee.garywelcome(1.7, 0.005)
 
     slprt("\nPlease enter your name : ", 0.015)
     player_name = input()
@@ -25,13 +23,15 @@ def start():
             if confirm_ready == "y":
                 break
             elif confirm_ready == "n":
-                slprt("\nOkay, game stopped!\n\nPress any key to continue...\n", 0.015)
-                msvcrt.getch()
-                main.mainmenu()
+                slprt("\nOkay, game stopped!\n\nReturning to Main Menu...\n", 0.015)
+                time.sleep(2)
+                if __name__ != '__main__':
+                    main.mainmenu()
+                exit()
             else:
                 slprt("\nInvalid answer!\n", 0.015)
 
-    slprt(zeelibrary.garyokay, 0.005)
+    slprt(zee.okay, 0.005)
 
     def gameplay() :
 
@@ -108,7 +108,7 @@ def start():
                 slprt("\nInvalid answer!\n", 0.015)
 
     def rating():
-        slprt(zeelibrary.garyrating, 0.015)
+        slprt(zee.garyrating, 0.005)
         while True:
             try:
                 slprt("\nYour rating = ", 0.015)
@@ -123,7 +123,7 @@ def start():
     def rating_feedback(rating):
 
         if rating in range(1,6):
-            slprt(zeelibrary.garysorry, 0.015)
+            slprt(zee.garysorry, 0.015)
             while True:
                 try:
                     slprt("\nYour Answer = ", 0.015)
@@ -157,8 +157,9 @@ def start():
             rating_feedback(rating)
             slprt("\n\nReturning to ZEE Main Menu... \n", 0.015)
             time.sleep(2)
-            main.mainmenu()
-            break
+            if __name__ != '__main__':
+                main.mainmenu()
+            exit()
         
 if __name__ == "__main__":
     start()

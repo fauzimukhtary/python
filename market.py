@@ -2,6 +2,7 @@ from zeelibrary import slprt
 from msvcrt import getch
 from services import database
 import main
+import time
 
 def add():
     while True:
@@ -58,10 +59,11 @@ def start():
                 check()
                 return start()
             elif opt == 3:
-                if not __name__ == "__main__":
+                slprt('\nReturning to Main Menu... \n', 0.015)
+                time.sleep(2)
+                if __name__ != "__main__":
                     main.mainmenu()
-                else:
-                    exit()
+                exit()
             else:
                 slprt('\nInvalid!\n', 0.015)
         except ValueError:

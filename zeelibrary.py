@@ -1,21 +1,22 @@
 import time
 import sys
 import socket
+import msvcrt
 
-def garywelcome1(version = str, delay = float):
-    txt = f'''{' Finding Gary {version} ':^77}'''
-    for char in txt:
+def garywelcome(version = str, delay = float):
+    txt1 = (f'\n{'*' * 77}\n{f' Finding Gary  {version} ':*^77}\n{' by Fauzi ':*^77}\n{'*' * 77}\n\nPress any key to continue...')
+    for char in txt1:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    msvcrt.getch()
+    txt2 = f'''\n\n{' Welcome Player! ':*^77}'''
+    for char in txt2:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(delay)
 
-garywelcome2 = '''
-****************************** Welcome Player! ******************************
-'''
-
-garyokay = '''
-*********************************** Okay! ***********************************
-'''
+okay = f'\n{' Okay! ':*^77}\n'
 
 garyrating = '''
 10 - Outstanding
@@ -85,14 +86,13 @@ def filename():
     print(f"NAMA FILE INI ADALAH: {__name__}")
     print(f"Jika di-import maka file ini bernama zeelibrary, jika dalam debugging maka bernama __main__")
     
-def hellopc():
+def hellopc(delay = float):
     pcname = socket.gethostname()
-    style = "-"
-    hello_sign = str(f"{style * 8} Hello {pcname}! {style * 8}")
-    print()
-    print(style * len(hello_sign))
-    print(hello_sign)
-    print(style * len(hello_sign))
+    txt = f'\n{'-':-^77}\n{f' Hello {pcname}! ':-^77}\n{'-':-^77}\n'
+    for char in txt:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
     
 def helloname(name) -> str:
     print("*" * (len(name) + 6))

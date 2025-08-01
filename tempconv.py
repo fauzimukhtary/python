@@ -7,7 +7,7 @@ temp = zeelibrary.TempConv()
 
 def start():
     if __name__ == '__main__':
-        zeelibrary.hellopc()
+        zeelibrary.hellopc(0.005)
     slprt('\nSelamat datang di ZEETempConv!\n', 0.015)
     
     def celc():
@@ -128,9 +128,9 @@ def start():
         if not restart():
             slprt('\nKamu akan diarahkan kembali ke ZEE Main Menu...\n', 0.015)
             time.sleep(3)
-            if not __name__ == '__main__':
+            if __name__ != '__main__':
                 main.mainmenu()
-            break
+            exit()
 
 if __name__ == "__main__":
     start()

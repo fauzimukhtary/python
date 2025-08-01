@@ -37,7 +37,6 @@ def mainmenu():
         except ValueError:
             slprt("\nInvalid!\n", 0.015)
 
-# debug
 if __name__ == "__main__":
-    zee.hellopc()
+    zee.hellopc(0.005)
     mainmenu()
